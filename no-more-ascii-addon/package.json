@@ -1,5 +1,5 @@
 {
-  "title": "No More ASCII UTF-8 Inserter",
+  "title": "No More ASCII text inserter",
   "name": "no-more-ascii-addon",
   "version": "0.1.1",
   "description": "Enables the easy addition of non ASCII data to web forms.",

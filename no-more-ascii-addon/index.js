@@ -115,19 +115,81 @@ var yoruba_cm = cm.Item({
                  '});'});
 
 // Control Characters
+// http://unicode.org/reports/tr9/
+// 
 var rtl_cm = control_m.Item({
-  label: "Right To Left indicator:       'Ọkọ afategun-sare mi kun fun ẹja arọ'",
+  label: "Right To Left marker",
   contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
                  '  node.value+=String.fromCodePoint(0x200F);' +
                  '});'});
+var ltr_cm = control_m.Item({
+  label: "Left To Right marker",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+=String.fromCodePoint(0x200E);' +
+                 '});'});
 
+
+var rle_cm = control_m.Item({
+  label: "Right-to-Left Embedding",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+=String.fromCodePoint(0x202B);' +
+                 '});'});
+
+var lre_cm = control_m.Item({
+  label: "Left-to-Right Embedding",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+=String.fromCodePoint(0x202A);' +
+                 '});'});
+
+
+var rlo_cm = control_m.Item({
+  label: "Right-to-Left Override",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+=String.fromCodePoint(0x202E);' +
+                 '});'});
+var lro_cm = control_m.Item({
+  label: "Left-to-Right Override",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+=String.fromCodePoint(0x202D);' +
+                 '});'});
+
+var shift_out_cm = control_m.Item({
+  label: "ASCII Shift Out",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+=String.fromCodePoint(0x000E);' +
+                 '});'});
+var shift_in_cm = control_m.Item({
+  label: "ASCII Shift In",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+=String.fromCodePoint(0x000F);' +
+                 '});'});
+
+
+var pop_cm = control_m.Item({
+  label: "Pop Directional Formatting",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+=String.fromCodePoint(0x202C);' +
+                 '});'});
+
+var annot_cm = control_m.Item({
+  label: "Interlinear Annotation Anchor",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+=String.fromCodePoint(0xFFF9);' +
+                 '});'});
+
+var sep1_cm = control_m.Separator();
+var sep2_cm = control_m.Separator();
+var sep3_cm = control_m.Separator();
+var sep4_cm = control_m.Separator();
+var sep5_cm = control_m.Separator();
+var sep6_cm = control_m.Separator();
 
 var about_nmam = nmam.Item({
   label: "About. (Investigating Software)",
   contentScript: 'self.on("click", function (node, data) { window.location.assign("http://www.investigatingsoftware.co.uk");})' +
                  ';'});
 
-
+// Menu structure
 var languageMenu = cm.Menu({
   label: "Languages/Scripts",
   items: [arabic_std_cm,cherokee_cm,csimplified_cm,ctraditional_cm,georgian_cm,greek_mod_cm,hebrew_cm,hindi_cm,inuktitut_cm,kannada_cm,khmer_cm,korean_cm,russian_cm,sp_cm,swedish_cm,yoruba_cm]
@@ -135,14 +197,14 @@ var languageMenu = cm.Menu({
 
 var controlMenu = control_m.Menu({
   label: "Control Characters/code-points",
-  items: [rtl_cm]
+  items: [rtl_cm, ltr_cm,sep1_cm, rle_cm,lre_cm,sep2_cm,rlo_cm,lro_cm,sep4_cm,pop_cm,sep5_cm,shift_out_cm,shift_in_cm,sep6_cm,annot_cm]
 });
 
 
 var nomoreMenu = nmam.Menu({
   label: "No More ASCII",
   context: nmam.SelectorContext("input,textarea"),
-  items: [languageMenu,controlMenu,about_nmam]
+  items: [languageMenu,controlMenu,sep3_cm,about_nmam]
 });
 
 

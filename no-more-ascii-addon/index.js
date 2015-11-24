@@ -1,7 +1,7 @@
 var self = require('sdk/self');
 var nmam = require("sdk/context-menu");
 var cm = require("sdk/context-menu");
-
+var control_m = require("sdk/context-menu");
 
 var ctraditional_cm = cm.Item({
   label: "Chinese (Mandarin) Traditional:   '我的氣墊船裝滿了鱔魚'",
@@ -114,6 +114,13 @@ var yoruba_cm = cm.Item({
                  '  node.value+="Ọkọ afategun-sare mi kun fun ẹja arọ";' +
                  '});'});
 
+// Control Characters
+var rtl_cm = control_m.Item({
+  label: "Right To Left indicator:       'Ọkọ afategun-sare mi kun fun ẹja arọ'",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+=String.fromCodePoint(0x200F);' +
+                 '});'});
+
 
 var about_nmam = nmam.Item({
   label: "About. (Investigating Software)",
@@ -124,14 +131,18 @@ var about_nmam = nmam.Item({
 var languageMenu = cm.Menu({
   label: "Languages/Scripts",
   items: [arabic_std_cm,cherokee_cm,csimplified_cm,ctraditional_cm,georgian_cm,greek_mod_cm,hebrew_cm,hindi_cm,inuktitut_cm,kannada_cm,khmer_cm,korean_cm,russian_cm,sp_cm,swedish_cm,yoruba_cm]
+});
 
+var controlMenu = control_m.Menu({
+  label: "Control Characters/code-points",
+  items: [rtl_cm]
 });
 
 
 var nomoreMenu = nmam.Menu({
   label: "No More ASCII",
   context: nmam.SelectorContext("input,textarea"),
-  items: [languageMenu,about_nmam]
+  items: [languageMenu,controlMenu,about_nmam]
 });
 
 

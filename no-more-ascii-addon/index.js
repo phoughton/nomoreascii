@@ -2,6 +2,7 @@ var self = require('sdk/self');
 var nmam = require("sdk/context-menu");
 var cm = require("sdk/context-menu");
 var control_m = require("sdk/context-menu");
+var currency_m = require("sdk/context-menu");
 
 var ctraditional_cm = cm.Item({
   label: "Chinese (Mandarin) Traditional:   '我的氣墊船裝滿了鱔魚'",
@@ -177,12 +178,148 @@ var annot_cm = control_m.Item({
                  '  node.value+=String.fromCodePoint(0xFFF9);' +
                  '});'});
 
+// Currency Symbols
+var Genericm = currency_m.Item({
+  label: "Generic Currency Symbol: ¤",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="¤";' +
+                 '});'});
+var AFNm = currency_m.Item({
+  label: "Afghan afghani (AFN): ؋",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="؋";' +
+                 '});'});
+var DZDm = currency_m.Item({
+  label: "Algerian dinar (DZD): د.ج",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="د.ج";' +
+                 '});'});
+
+var AZNm = currency_m.Item({
+  label: "Azerbaijani manat (AZN): ₼",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="₼";' +
+                 '});'});
+
+var BDTm = currency_m.Item({
+  label: "Bangladeshi taka (BDT): ৳",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="৳";' +
+                 '});'});
+
+var KHRm = currency_m.Item({
+  label: "Cambodian riel (KHR):  ៛",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="៛";' +
+                 '});'});
+
+var centm = currency_m.Item({
+  label: "Cent (USD etc):  ¢",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="¢";' +
+                 '});'});
+
+var CRCm = currency_m.Item({
+  label: "Costa Rican colón (CRC): ₡",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="¢";' +
+                 '});'});
+var CZKm = currency_m.Item({
+  label: "Czech koruna (CZK): Kč",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="Kč";' +
+                 '});'});
+
+var EGPm = currency_m.Item({
+  label: "Egyptian pound (EGP): ج.م;",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="ج.م;";' +
+                 '});'});
+
+var EURm = currency_m.Item({
+  label: "Euro (EUR): €",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="€";' +
+                 '});'});
+
+var GBPm = currency_m.Item({
+  label: "British Pound Sterling (GBP): £",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="£";' +
+                 '});'});
+
+var GELm = currency_m.Item({
+  label: "Georgian lari (GEL) " + String.fromCodePoint(0x20BE),
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+=String.fromCodePoint(0x20BE);' +
+                 '});'});
+
+var INRm = currency_m.Item({
+  label: "Indian rupee (INR) " + String.fromCodePoint(0x20B9),
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+=String.fromCodePoint(0x20B9);' +
+                 '});'});
+
+var JPYm = currency_m.Item({
+  label: "Japanese yen (JPY): ¥",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="¥";' +
+                 '});'});
+
+var MNTm = currency_m.Item({
+  label: "Mongolian tögrög (MNT): ₮",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="₮";' +
+                 '});'});
+
+var PLNm = currency_m.Item({
+  label: "Polish złoty (PLN): zł",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="zł";' +
+                 '});'});
+
+var NGNm = currency_m.Item({
+  label: "Nigerian naira (NGN): ₦",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="₦";' +
+                 '});'});
+var KPWm = currency_m.Item({
+  label: "North Korean won (KPW): ₩",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="₩";' +
+                 '});'});
+var RUBm = currency_m.Item({
+  label: "Russian ruble (RUB): ₽",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="₽";' +
+                 '});'});
+
+
+var BHTm = currency_m.Item({
+  label: "Thai baht (BHT): ฿",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="฿";' +
+                 '});'});
+
+var TRYm = currency_m.Item({
+  label: "Turkish lira (TRY): ₺",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="₺";' +
+                 '});'});
+
+var USDm = currency_m.Item({
+  label: "United States Dollar (USD): $",
+  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
+                 '  node.value+="$";' +
+                 '});'});
+
 var sep1_cm = control_m.Separator();
 var sep2_cm = control_m.Separator();
 var sep3_cm = control_m.Separator();
 var sep4_cm = control_m.Separator();
 var sep5_cm = control_m.Separator();
 var sep6_cm = control_m.Separator();
+var sep7_cm = control_m.Separator();
 
 var about_nmam = nmam.Item({
   label: "About. (Investigating Software)",
@@ -200,11 +337,15 @@ var controlMenu = control_m.Menu({
   items: [rtl_cm, ltr_cm,sep1_cm, rle_cm,lre_cm,sep2_cm,rlo_cm,lro_cm,sep4_cm,pop_cm,sep5_cm,shift_out_cm,shift_in_cm,sep6_cm,annot_cm]
 });
 
+var currencyMenu = currency_m.Menu({
+  label: "Currency Symbols",
+  items: [Genericm,sep7_cm,AFNm,DZDm,AZNm,BDTm,GBPm,KHRm,centm,CRCm,CZKm,EGPm,EURm,GELm,INRm,JPYm,MNTm,NGNm,KPWm,PLNm,RUBm,BHTm,TRYm,USDm]
+});
 
 var nomoreMenu = nmam.Menu({
   label: "No More ASCII",
   context: nmam.SelectorContext("input,textarea"),
-  items: [languageMenu,controlMenu,sep3_cm,about_nmam]
+  items: [languageMenu,controlMenu,currencyMenu,sep3_cm,about_nmam]
 });
 
 

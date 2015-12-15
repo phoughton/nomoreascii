@@ -2,9 +2,8 @@ var self = require('sdk/self');
 var nmam = require("sdk/context-menu");
 var cm = require("sdk/context-menu");
 var control_m = require("sdk/context-menu");
-var currency_m = require("sdk/context-menu");
-var emoji_m = require("sdk/context-menu");
-var emoji_m2 = require("sdk/context-menu");
+var currency_cm = require("sdk/context-menu");
+var emoji_cm = require("sdk/context-menu");
 
 var ctraditional_cm = cm.Item({
   label: "Chinese (Mandarin) Traditional:   '我的氣墊船裝滿了鱔魚'",
@@ -161,188 +160,70 @@ var annot_cm = control_m.Item({
   contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0xFFF9); });'});
 
 // Currency Symbols
-var Genericm = currency_m.Item({
-  label: "Generic Currency Symbol: ¤",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="¤"; });'});
-
-var AFNm = currency_m.Item({
-  label: "Afghan afghani (AFN): ؋",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="؋"; });'});
-
-var DZDm = currency_m.Item({
-  label: "Algerian dinar (DZD): د.ج",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="د.ج"; });'});
-
-var AZNm = currency_m.Item({
-  label: "Azerbaijani manat (AZN): ₼",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="₼"; });'});
-
-var BDTm = currency_m.Item({
-  label: "Bangladeshi taka (BDT): ৳",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="৳"; });'});
-
-var KHRm = currency_m.Item({
-  label: "Cambodian riel (KHR):  ៛",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="៛"; });'});
-var centm = currency_m.Item({
-  label: "Cent (USD etc):  ¢",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="¢"; });'});
-
-var CRCm = currency_m.Item({
-  label: "Costa Rican colón (CRC): ₡",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="¢"; });'});
-
-var CZKm = currency_m.Item({
-  label: "Czech koruna (CZK): Kč",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="Kč"; });'});
-
-var EGPm = currency_m.Item({
-  label: "Egyptian pound (EGP): ج.م;",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="ج.م;"; });'});
-
-var EURm = currency_m.Item({
-  label: "Euro (EUR): €",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="€"; });'});
-
-var GBPm = currency_m.Item({
-  label: "British Pound Sterling (GBP): £",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="£"; });'});
-
-var GELm = currency_m.Item({
-  label: "Georgian lari (GEL) " + String.fromCodePoint(0x20BE),
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x20BE); });'});
-
-var INRm = currency_m.Item({
-  label: "Indian rupee (INR) " + String.fromCodePoint(0x20B9),
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x20B9); });'});
-
-var JPYm = currency_m.Item({
-  label: "Japanese yen (JPY): ¥",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="¥"; });'});
-
-var MNTm = currency_m.Item({
-  label: "Mongolian tögrög (MNT): ₮",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="₮"; });'});
-
-var PLNm = currency_m.Item({
-  label: "Polish złoty (PLN): zł",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="zł"; });'});
-
-var NGNm = currency_m.Item({
-  label: "Nigerian naira (NGN): ₦",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="₦"; });'});
-
-var KPWm = currency_m.Item({
-  label: "North Korean won (KPW): ₩",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="₩"; });'});
-
-var RUBm = currency_m.Item({
-  label: "Russian ruble (RUB): ₽",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="₽"; });'});
-
-var BHTm = currency_m.Item({
-  label: "Thai baht (BHT): ฿",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="฿"; });'});
-
-var TRYm = currency_m.Item({
-  label: "Turkish lira (TRY): ₺",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="₺"; });'});
-
-var USDm = currency_m.Item({
-  label: "United States Dollar (USD): $",
-  contentScript: 'self.on("click", function (node, data) {  node.value+="$"; });'});
-
-
-// emoji
-
-var e1 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F600) + "  GRINNING FACE" ,
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F600); });'});
-
-var e2 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F601) + "  GRINNING FACE WITH SMILING EYES",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F601); });'});
-
-var e3 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F602) + "  FACE WITH TEARS OF JOY",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F602); });'});
-
-var e4 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F603) + "  SMILING FACE WITH OPEN MOUTH",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F603); });'});
-
-var e5 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F604) + "  SMILING FACE WITH OPEN MOUTH AND SMILING EYES",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F604); });'});
-
-var e6 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F605) + "  SMILING FACE WITH OPEN MOUTH AND COLDSWEAT",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F605); });'});
-
-var e7 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F606) + "  SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F606); });'});
-
-var e8 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F607) + "  SMILING FACE WITH HALO",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F607); });'});
-
-var e9 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F608) + "  SMILING FACE WITH HORNS",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F608); });'});
-
-var e10 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F609) + "  WINKING FACE",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F609); });'});
-
-var e11 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F60A) + "  SMILING FACE WITH SMILING EYES",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F60A); });'});
-
-var e12 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F60B) + "  FACE SAVOURING DELICIOUS FOOD",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F60B); });'});
-
-var e13 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F60C) + "  RELIEVED FACE",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F60C); });'});
-
-var e14 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F60D) + "  SMILING FACE WITH HEART-SHAPED EYES",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F60D); });'});
-
-var e15 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F60E) + "  SMILING FACE WITH SUNGLASSES",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F60E); });'});
-
-var e16 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F60F) + "  SMIRKING FACE",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F60F); });'});
-
-var e17 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F610) + "  NEUTRAL FACE",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F610); });'});
-
-var e18 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F611) + "  EXPRESSIONLESS FACE",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F611); });'});
-
-var e19 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F612) + "  UNAMUSED FACE",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F612); });'});
-
-var e20 = emoji_m.Item({
-  label: String.fromCodePoint(0x1F613) + "  FACE WITH COLD SWEAT",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F613); });'});
-
-emoji_m2.Menu({
-  label: "Emoji2",
+var sep7_it = control_m.Separator();
+var currencyMenu=currency_cm.Menu({
+  label: "Currency Symbols",
   contentScript: 'self.on("click", function (node, data) {' +
                  '  node.value+=data;' +
                  '});',
 	items: [
-    		cm.Item({ label: String.fromCodePoint(0x1F613) + "  FACE WITH COLD SWEAT", data: String.fromCodePoint(0x1F613) }),
-    		cm.Item({ label: String.fromCodePoint(0x1F612) + "  UNAMUSED FACE", data: String.fromCodePoint(0x1F612)})
+    		cm.Item({ label: "Generic Currency Symbol: ¤", 	data: "¤" }),
+		sep7_it,
+    		cm.Item({ label: "Afghan afghani (AFN): ؋",   	data: "؋" }),
+    		cm.Item({ label: "Algerian dinar (DZD): د.ج", 	data: "د.ج" }),
+    		cm.Item({ label: "Azerbaijani manat (AZN): ₼",	data: "₼" }),
+    		cm.Item({ label: "Bangladeshi taka (BDT): ৳",	data: "৳" }),
+    		cm.Item({ label: "Cambodian riel (KHR):  ៛",	data: "៛" }),
+    		cm.Item({ label: "Cent (USD etc):  ¢",		data: "¢" }),
+    		cm.Item({ label: "Costa Rican colón (CRC): ₡",	data: "₡" }),
+    		cm.Item({ label: "Czech koruna (CZK): Kč",	data: "Kč" }),
+    		cm.Item({ label: "Egyptian pound (EGP): ج.م;",	data: "ج.م;" }),
+    		cm.Item({ label: "Euro (EUR): €",		data: "€" }),
+    		cm.Item({ label: "British Pound Sterling (GBP): £",	data: "£" }),
+    		cm.Item({ label: "Georgian lari (GEL) " + String.fromCodePoint(0x20BE),	data: String.fromCodePoint(0x20BE) }),
+    		cm.Item({ label: "Indian rupee (INR) " + String.fromCodePoint(0x20B9),	data: String.fromCodePoint(0x20B9) }),
+    		cm.Item({ label: "Japanese yen (JPY): ¥",	data: "¥" }),
+    		cm.Item({ label: "Mongolian tögrög (MNT): ₮",	data: "₮" }),
+    		cm.Item({ label: "Polish złoty (PLN): zł",	data: "zł" }),
+    		cm.Item({ label: "Nigerian naira (NGN): ₦",	data: "₦" }),
+    		cm.Item({ label: "North Korean won (KPW): ₩",	data: "₩" }),
+    		cm.Item({ label: "Russian ruble (RUB): ₽",	data: "₽" }),
+    		cm.Item({ label: "Thai baht (BHT): ฿",		data: "฿" }),
+    		cm.Item({ label: "Turkish lira (TRY): ₺",	data: "₺" }),
+    		cm.Item({ label: "United States Dollar (USD): $",	data: "$" })
+  	]
+});
+
+// Emoji
+var emojiMenu=emoji_cm.Menu({
+  label: "Emoji (Surrogate Pairs)",
+  contentScript: 'self.on("click", function (node, data) {' +
+                 '  node.value+=data;' +
+                 '});',
+	items: [
+    		cm.Item({ label: String.fromCodePoint(0x1F600) + "  GRINNING FACE", 			data: String.fromCodePoint(0x1F600) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F601) + "  GRINNING FACE WITH SMILING EYES",   data: String.fromCodePoint(0x1F601) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F602) + "  FACE WITH TEARS OF JOY",   		data: String.fromCodePoint(0x1F602) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F603) + "  SMILING FACE WITH OPEN MOUTH",   	data: String.fromCodePoint(0x1F603) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F604) + "  SMILING FACE WITH OPEN MOUTH AND SMILING EYES",   	data: String.fromCodePoint(0x1F604) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F605) + "  SMILING FACE WITH OPEN MOUTH AND COLDSWEAT",   	data: String.fromCodePoint(0x1F605) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F606) + "  SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES",   	data: String.fromCodePoint(0x1F606) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F607) + "  SMILING FACE WITH HALO",   		data: String.fromCodePoint(0x1F607) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F608) + "  SMILING FACE WITH HORNS",   	data: String.fromCodePoint(0x1F608) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F609) + "  WINKING FACE",   			data: String.fromCodePoint(0x1F609) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F60A) + "  SMILING FACE WITH SMILING EYES",   	data: String.fromCodePoint(0x1F60A) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F60B) + "  FACE SAVOURING DELICIOUS FOOD",   	data: String.fromCodePoint(0x1F60B) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F60C) + "  RELIEVED FACE",   			data: String.fromCodePoint(0x1F60C) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F60D) + "  SMILING FACE WITH HEART-SHAPED EYES",		data: String.fromCodePoint(0x1F60D) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F60E) + "  SMILING FACE WITH SUNGLASSES",	data: String.fromCodePoint(0x1F60E) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F60F) + "  SMIRKING FACE",			data: String.fromCodePoint(0x1F60F) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F610) + "  NEUTRAL FACE",			data: String.fromCodePoint(0x1F610) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F611) + "  EXPRESSIONLESS FACE",		data: String.fromCodePoint(0x1F611) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F612) + "  UNAMUSED FACE",			data: String.fromCodePoint(0x1F612) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F613) + "  FACE WITH COLD SWEAT",		data: String.fromCodePoint(0x1F613) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F614) + "  PENSIVE FACE",			data: String.fromCodePoint(0x1F614) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F615) + "  CONFUSED FACE",			data: String.fromCodePoint(0x1F615) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F616) + "  CONFOUNDED FACE",			data: String.fromCodePoint(0x1F616) })
   	]
 });
 
@@ -352,7 +233,6 @@ var sep3_cm = control_m.Separator();
 var sep4_cm = control_m.Separator();
 var sep5_cm = control_m.Separator();
 var sep6_cm = control_m.Separator();
-var sep7_cm = control_m.Separator();
 
 var about_nmam = nmam.Item({
   label: "About. (Investigating Software)",
@@ -370,22 +250,16 @@ var controlMenu = control_m.Menu({
   items: [rtl_cm, ltr_cm,sep1_cm, rle_cm,lre_cm,sep2_cm,rlo_cm,lro_cm,sep4_cm,pop_cm,sep5_cm,shift_out_cm,shift_in_cm,sep6_cm,annot_cm]
 });
 
-var currencyMenu = currency_m.Menu({
-  label: "Currency Symbols",
-  items: [Genericm,sep7_cm,AFNm,DZDm,AZNm,BDTm,GBPm,KHRm,centm,CRCm,CZKm,EGPm,EURm,GELm,INRm,JPYm,MNTm,NGNm,KPWm,PLNm,RUBm,BHTm,TRYm,USDm]
-});
-
-var emojiMenu = emoji_m.Menu({
-  label: "Emoji",
-  items: [e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,
-	e11,e12,e13,e14,e15,e16,e17,e18,e19,e20]
-});
+//var currencyMenu = currency_m.Menu({
+//  label: "Currency Symbols",
+//  items: [Genericm,sep7_cm,AFNm,DZDm,AZNm,BDTm,GBPm,KHRm,centm,CRCm,CZKm,EGPm,EURm,GELm,INRm,JPYm,MNTm,NGNm,KPWm,PLNm,RUBm,BHTm,TRYm,USDm]
+//});
 
 
 var nomoreMenu = nmam.Menu({
   label: "No More ASCII",
   context: nmam.SelectorContext("input,textarea"),
-  items: [languageMenu,controlMenu,currencyMenu,emojiMenu,emoji_m2,sep3_cm,about_nmam]
+  items: [languageMenu,controlMenu,currencyMenu,emojiMenu,sep3_cm,about_nmam]
 });
 
 

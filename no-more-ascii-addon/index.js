@@ -1,5 +1,5 @@
 var self = require('sdk/self');
-var nmam = require("sdk/context-menu");
+var main_cm = require("sdk/context-menu");
 var language_cm = require("sdk/context-menu");
 var control_cm = require("sdk/context-menu");
 var currency_cm = require("sdk/context-menu");
@@ -61,7 +61,6 @@ var controlMenu=control_cm.Menu({
 
 
 // Currency Symbols
-var sep7_it = control_cm.Separator();
 var currencyMenu=currency_cm.Menu({
   label: "Currency Symbols",
   contentScript: 'self.on("click", function (node, data) {' +
@@ -129,15 +128,15 @@ var emojiMenu=emoji_cm.Menu({
 });
 
 
-var about_nmam = nmam.Item({
+var about_nmam = main_cm.Item({
   label: "About. (Investigating Software)",
   contentScript: 'self.on("click", function (node, data) { window.location.assign("http://www.investigatingsoftware.co.uk");})' +
                  ';'});
 
-var nomoreMenu = nmam.Menu({
+var nomoreMenu = main_cm.Menu({
   label: "No More ASCII",
-  context: nmam.SelectorContext("input,textarea,div[contenteditable=true]"),
-  items: [languageMenu,controlMenu,currencyMenu,emojiMenu,nmam.Separator(),about_nmam]
+  context: main_cm.SelectorContext("input,textarea,div[contenteditable=true]"),
+  items: [languageMenu,controlMenu,currencyMenu,emojiMenu,main_cm.Separator(),about_nmam]
 });
 
 

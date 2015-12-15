@@ -120,7 +120,7 @@ var yoruba_cm = cm.Item({
 var controlMenu=control_cm.Menu({
   label: "Control Characters/code-points",
   contentScript: 'self.on("click", function (node, data) {' +
-                 '  node.value+=data;' +
+                 '  node.value+=data;if (node.nodeName=="DIV") {node.innerHTML+=data;};' +
                  '});',
 	items: [
     		cm.Item({ label: "Right To Left marker", 	data: String.fromCodePoint(0x200F) }),
@@ -146,7 +146,7 @@ var sep7_it = control_cm.Separator();
 var currencyMenu=currency_cm.Menu({
   label: "Currency Symbols",
   contentScript: 'self.on("click", function (node, data) {' +
-                 '  node.value+=data;' +
+                 '  node.value+=data;if (node.nodeName=="DIV") {node.innerHTML+=data;};' +
                  '});',
 	items: [
     		cm.Item({ label: "¤  Generic Currency Symbol", 	data: "¤" }),
@@ -180,7 +180,7 @@ var currencyMenu=currency_cm.Menu({
 var emojiMenu=emoji_cm.Menu({
   label: "Emoji (Surrogate Pairs)",
   contentScript: 'self.on("click", function (node, data) {' +
-                 '  node.value+=data;' +
+                 '  node.value+=data;if (node.nodeName=="DIV") {node.innerHTML+=data;};' +
                  '});',
 	items: [
     		cm.Item({ label: String.fromCodePoint(0x1F600) + "  GRINNING FACE", 			data: String.fromCodePoint(0x1F600) }),
@@ -223,7 +223,7 @@ var languageMenu = cm.Menu({
 
 var nomoreMenu = nmam.Menu({
   label: "No More ASCII",
-  context: nmam.SelectorContext("input,textarea"),
+  context: nmam.SelectorContext("input,textarea,div[contenteditable=true]"),
   items: [languageMenu,controlMenu,currencyMenu,emojiMenu,nmam.Separator(),about_nmam]
 });
 

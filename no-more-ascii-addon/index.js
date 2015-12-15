@@ -167,30 +167,30 @@ var currencyMenu=currency_cm.Menu({
                  '  node.value+=data;' +
                  '});',
 	items: [
-    		cm.Item({ label: "Generic Currency Symbol: ¤", 	data: "¤" }),
+    		cm.Item({ label: "¤  Generic Currency Symbol", 	data: "¤" }),
 		sep7_it,
-    		cm.Item({ label: "Afghan afghani (AFN): ؋",   	data: "؋" }),
-    		cm.Item({ label: "Algerian dinar (DZD): د.ج", 	data: "د.ج" }),
-    		cm.Item({ label: "Azerbaijani manat (AZN): ₼",	data: "₼" }),
-    		cm.Item({ label: "Bangladeshi taka (BDT): ৳",	data: "৳" }),
-    		cm.Item({ label: "Cambodian riel (KHR):  ៛",	data: "៛" }),
-    		cm.Item({ label: "Cent (USD etc):  ¢",		data: "¢" }),
-    		cm.Item({ label: "Costa Rican colón (CRC): ₡",	data: "₡" }),
-    		cm.Item({ label: "Czech koruna (CZK): Kč",	data: "Kč" }),
-    		cm.Item({ label: "Egyptian pound (EGP): ج.م;",	data: "ج.م;" }),
-    		cm.Item({ label: "Euro (EUR): €",		data: "€" }),
-    		cm.Item({ label: "British Pound Sterling (GBP): £",	data: "£" }),
-    		cm.Item({ label: "Georgian lari (GEL) " + String.fromCodePoint(0x20BE),	data: String.fromCodePoint(0x20BE) }),
-    		cm.Item({ label: "Indian rupee (INR) " + String.fromCodePoint(0x20B9),	data: String.fromCodePoint(0x20B9) }),
-    		cm.Item({ label: "Japanese yen (JPY): ¥",	data: "¥" }),
-    		cm.Item({ label: "Mongolian tögrög (MNT): ₮",	data: "₮" }),
-    		cm.Item({ label: "Polish złoty (PLN): zł",	data: "zł" }),
-    		cm.Item({ label: "Nigerian naira (NGN): ₦",	data: "₦" }),
-    		cm.Item({ label: "North Korean won (KPW): ₩",	data: "₩" }),
-    		cm.Item({ label: "Russian ruble (RUB): ₽",	data: "₽" }),
-    		cm.Item({ label: "Thai baht (BHT): ฿",		data: "฿" }),
-    		cm.Item({ label: "Turkish lira (TRY): ₺",	data: "₺" }),
-    		cm.Item({ label: "United States Dollar (USD): $",	data: "$" })
+    		cm.Item({ label: "؋  Afghan afghani (AFN)",   	data: "؋" }),
+    		cm.Item({ label: "د.ج  Algerian dinar (DZD)", 	data: "د.ج" }),
+    		cm.Item({ label: "₼  Azerbaijani manat (AZN)",	data: "₼" }),
+    		cm.Item({ label: "৳  Bangladeshi taka (BDT)",	data: "৳" }),
+    		cm.Item({ label: "៛  Cambodian riel (KHR)",	data: "៛" }),
+    		cm.Item({ label: "¢  Cent (USD etc)",		data: "¢" }),
+    		cm.Item({ label: "₡  Costa Rican colón (CRC)",	data: "₡" }),
+    		cm.Item({ label: "Kč  Czech koruna (CZK)",	data: "Kč" }),
+    		cm.Item({ label: "ج.م;  Egyptian pound (EGP)",	data: "ج.م;" }),
+    		cm.Item({ label: "€  Euro (EUR)",		data: "€" }),
+    		cm.Item({ label: "£  British Pound Sterling (GBP)",	data: "£" }),
+    		cm.Item({ label: String.fromCodePoint(0x20BE) + "  Georgian lari (GEL)",	data: String.fromCodePoint(0x20BE) }),
+    		cm.Item({ label: String.fromCodePoint(0x20B9) + "  Indian rupee (INR)" +,	data: String.fromCodePoint(0x20B9) }),
+    		cm.Item({ label: "¥  Japanese yen (JPY)",	data: "¥" }),
+    		cm.Item({ label: "₮  Mongolian tögrög (MNT)",	data: "₮" }),
+    		cm.Item({ label: "zł  Polish złoty (PLN)",	data: "zł" }),
+    		cm.Item({ label: "₦  Nigerian naira (NGN)",	data: "₦" }),
+    		cm.Item({ label: "₩  North Korean won (KPW)",	data: "₩" }),
+    		cm.Item({ label: "₽  Russian ruble (RUB)",	data: "₽" }),
+    		cm.Item({ label: "฿  Thai baht (BHT)",		data: "฿" }),
+    		cm.Item({ label: "₺  Turkish lira (TRY)",	data: "₺" }),
+    		cm.Item({ label: "$  United States Dollar (USD)",	data: "$" })
   	]
 });
 
@@ -249,11 +249,6 @@ var controlMenu = control_m.Menu({
   label: "Control Characters/code-points",
   items: [rtl_cm, ltr_cm,sep1_cm, rle_cm,lre_cm,sep2_cm,rlo_cm,lro_cm,sep4_cm,pop_cm,sep5_cm,shift_out_cm,shift_in_cm,sep6_cm,annot_cm]
 });
-
-//var currencyMenu = currency_m.Menu({
-//  label: "Currency Symbols",
-//  items: [Genericm,sep7_cm,AFNm,DZDm,AZNm,BDTm,GBPm,KHRm,centm,CRCm,CZKm,EGPm,EURm,GELm,INRm,JPYm,MNTm,NGNm,KPWm,PLNm,RUBm,BHTm,TRYm,USDm]
-//});
 
 
 var nomoreMenu = nmam.Menu({

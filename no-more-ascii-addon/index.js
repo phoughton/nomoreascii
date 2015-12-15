@@ -3,6 +3,7 @@ var nmam = require("sdk/context-menu");
 var cm = require("sdk/context-menu");
 var control_m = require("sdk/context-menu");
 var currency_m = require("sdk/context-menu");
+var emoji_m = require("sdk/context-menu");
 
 var ctraditional_cm = cm.Item({
   label: "Chinese (Mandarin) Traditional:   '我的氣墊船裝滿了鱔魚'",
@@ -120,63 +121,43 @@ var yoruba_cm = cm.Item({
 // 
 var rtl_cm = control_m.Item({
   label: "Right To Left marker",
-  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
-                 '  node.value+=String.fromCodePoint(0x200F);' +
-                 '});'});
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x200F); });'});
+
 var ltr_cm = control_m.Item({
   label: "Left To Right marker",
-  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
-                 '  node.value+=String.fromCodePoint(0x200E);' +
-                 '});'});
-
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x200E); });'});
 
 var rle_cm = control_m.Item({
   label: "Right-to-Left Embedding",
-  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
-                 '  node.value+=String.fromCodePoint(0x202B);' +
-                 '});'});
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x202B); });'});
 
 var lre_cm = control_m.Item({
   label: "Left-to-Right Embedding",
-  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
-                 '  node.value+=String.fromCodePoint(0x202A);' +
-                 '});'});
-
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x202A); });'});
 
 var rlo_cm = control_m.Item({
   label: "Right-to-Left Override",
-  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
-                 '  node.value+=String.fromCodePoint(0x202E);' +
-                 '});'});
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x202E); });'});
+
 var lro_cm = control_m.Item({
   label: "Left-to-Right Override",
-  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
-                 '  node.value+=String.fromCodePoint(0x202D);' +
-                 '});'});
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x202D); });'});
 
 var shift_out_cm = control_m.Item({
   label: "ASCII Shift Out",
-  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
-                 '  node.value+=String.fromCodePoint(0x000E);' +
-                 '});'});
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x000E); });'});
+
 var shift_in_cm = control_m.Item({
   label: "ASCII Shift In",
-  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
-                 '  node.value+=String.fromCodePoint(0x000F);' +
-                 '});'});
-
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x000F); });'});
 
 var pop_cm = control_m.Item({
   label: "Pop Directional Formatting",
-  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
-                 '  node.value+=String.fromCodePoint(0x202C);' +
-                 '});'});
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x202C); });'});
 
 var annot_cm = control_m.Item({
   label: "Interlinear Annotation Anchor",
-  contentScript: 'self.on("click", function (node, data) { self.postMessage(node.value);' +
-                 '  node.value+=String.fromCodePoint(0xFFF9);' +
-                 '});'});
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0xFFF9); });'});
 
 // Currency Symbols
 var Genericm = currency_m.Item({
@@ -270,7 +251,91 @@ var USDm = currency_m.Item({
   label: "United States Dollar (USD): $",
   contentScript: 'self.on("click", function (node, data) {  node.value+="$"; });'});
 
-var sep1_cm = control_m.Separator();
+
+// emoji
+
+var e1 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F600) + "  GRINNING FACE" ,
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F600); });'});
+
+var e2 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F601) + "  GRINNING FACE WITH SMILING EYES",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F601); });'});
+
+var e3 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F602) + "  FACE WITH TEARS OF JOY",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F602); });'});
+
+var e4 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F603) + "  SMILING FACE WITH OPEN MOUTH",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F603); });'});
+
+var e5 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F604) + "  SMILING FACE WITH OPEN MOUTH AND SMILING EYES",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F604); });'});
+
+var e6 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F605) + "  SMILING FACE WITH OPEN MOUTH AND COLDSWEAT",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F605); });'});
+
+var e7 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F606) + "  SMILING FACE WITH OPEN MOUTH AND TIGHTLY-CLOSED EYES",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F606); });'});
+
+var e8 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F607) + "  SMILING FACE WITH HALO",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F607); });'});
+
+var e9 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F608) + "  SMILING FACE WITH HORNS",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F608); });'});
+
+var e10 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F609) + "  WINKING FACE",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F609); });'});
+
+var e11 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F60A) + "  SMILING FACE WITH SMILING EYES",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F60A); });'});
+
+var e12 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F60B) + "  FACE SAVOURING DELICIOUS FOOD",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F60B); });'});
+
+var e13 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F60C) + "  RELIEVED FACE",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F60C); });'});
+
+var e14 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F60D) + "  SMILING FACE WITH HEART-SHAPED EYES",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F60D); });'});
+
+var e15 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F60E) + "  SMILING FACE WITH SUNGLASSES",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F60E); });'});
+
+var e16 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F60F) + "  SMIRKING FACE",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F60F); });'});
+
+var e17 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F610) + "  NEUTRAL FACE",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F610); });'});
+
+var e18 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F611) + "  EXPRESSIONLESS FACE",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F611); });'});
+
+var e19 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F612) + "  UNAMUSED FACE",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F612); });'});
+
+var e20 = emoji_m.Item({
+  label: String.fromCodePoint(0x1F613) + "  FACE WITH COLD SWEAT",
+  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F613); });'});
+
+
+var sep1_cm = control_m.Separator()
 var sep2_cm = control_m.Separator();
 var sep3_cm = control_m.Separator();
 var sep4_cm = control_m.Separator();
@@ -299,10 +364,17 @@ var currencyMenu = currency_m.Menu({
   items: [Genericm,sep7_cm,AFNm,DZDm,AZNm,BDTm,GBPm,KHRm,centm,CRCm,CZKm,EGPm,EURm,GELm,INRm,JPYm,MNTm,NGNm,KPWm,PLNm,RUBm,BHTm,TRYm,USDm]
 });
 
+var emojiMenu = emoji_m.Menu({
+  label: "Emoji",
+  items: [e1,e2,e3,e4,e5,e6,e7,e8,e9,e10,
+	e11,e12,e13,e14,e15,e16,e17,e18,e19,e20]
+});
+
+
 var nomoreMenu = nmam.Menu({
   label: "No More ASCII",
   context: nmam.SelectorContext("input,textarea"),
-  items: [languageMenu,controlMenu,currencyMenu,sep3_cm,about_nmam]
+  items: [languageMenu,controlMenu,currencyMenu,emojiMenu,sep3_cm,about_nmam]
 });
 
 

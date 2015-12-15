@@ -1,7 +1,7 @@
 var self = require('sdk/self');
 var nmam = require("sdk/context-menu");
 var cm = require("sdk/context-menu");
-var control_m = require("sdk/context-menu");
+var control_cm = require("sdk/context-menu");
 var currency_cm = require("sdk/context-menu");
 var emoji_cm = require("sdk/context-menu");
 
@@ -116,51 +116,33 @@ var yoruba_cm = cm.Item({
                  '  node.value+="Ọkọ afategun-sare mi kun fun ẹja arọ";' +
                  '});'});
 
-// Control Characters
-// http://unicode.org/reports/tr9/
-// 
-var rtl_cm = control_m.Item({
-  label: "Right To Left marker",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x200F); });'});
 
-var ltr_cm = control_m.Item({
-  label: "Left To Right marker",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x200E); });'});
+var controlMenu=control_cm.Menu({
+  label: "Control Characters/code-points",
+  contentScript: 'self.on("click", function (node, data) {' +
+                 '  node.value+=data;' +
+                 '});',
+	items: [
+    		cm.Item({ label: "Right To Left marker", 	data: String.fromCodePoint(0x200F) }),
+		cm.Item({ label: "Left To Right marker", 	data: String.fromCodePoint(0x200E) }),
+		control_cm.Separator(),
+		cm.Item({ label: "Right-to-Left Embedding", 	data: String.fromCodePoint(0x202B) }),
+		cm.Item({ label: "Left-to-Right Embedding", 	data: String.fromCodePoint(0x202A) }),
+		control_cm.Separator(),
+		cm.Item({ label: "Right-to-Left Override", 	data: String.fromCodePoint(0x202E) }),
+		cm.Item({ label: "Left-to-Right Override", 	data: String.fromCodePoint(0x202D) }),
+		control_cm.Separator(),
+		cm.Item({ label: "ASCII Shift Out", 		data: String.fromCodePoint(0x000E) }),
+		cm.Item({ label: "ASCII Shift In", 		data: String.fromCodePoint(0x000F) }),
+		control_cm.Separator(),
+		cm.Item({ label: "Pop Directional Formatting", 	data: String.fromCodePoint(0x202C) }),
+		cm.Item({ label: "Interlinear Annotation Anchor", data: String.fromCodePoint(0xFFF9) }),
+  	]
+});
 
-var rle_cm = control_m.Item({
-  label: "Right-to-Left Embedding",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x202B); });'});
-
-var lre_cm = control_m.Item({
-  label: "Left-to-Right Embedding",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x202A); });'});
-
-var rlo_cm = control_m.Item({
-  label: "Right-to-Left Override",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x202E); });'});
-
-var lro_cm = control_m.Item({
-  label: "Left-to-Right Override",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x202D); });'});
-
-var shift_out_cm = control_m.Item({
-  label: "ASCII Shift Out",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x000E); });'});
-
-var shift_in_cm = control_m.Item({
-  label: "ASCII Shift In",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x000F); });'});
-
-var pop_cm = control_m.Item({
-  label: "Pop Directional Formatting",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x202C); });'});
-
-var annot_cm = control_m.Item({
-  label: "Interlinear Annotation Anchor",
-  contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0xFFF9); });'});
 
 // Currency Symbols
-var sep7_it = control_m.Separator();
+var sep7_it = control_cm.Separator();
 var currencyMenu=currency_cm.Menu({
   label: "Currency Symbols",
   contentScript: 'self.on("click", function (node, data) {' +
@@ -168,7 +150,7 @@ var currencyMenu=currency_cm.Menu({
                  '});',
 	items: [
     		cm.Item({ label: "¤  Generic Currency Symbol", 	data: "¤" }),
-		sep7_it,
+		currency_cm.Separator(),
     		cm.Item({ label: "؋  Afghan afghani (AFN)",   	data: "؋" }),
     		cm.Item({ label: "د.ج  Algerian dinar (DZD)", 	data: "د.ج" }),
     		cm.Item({ label: "₼  Azerbaijani manat (AZN)",	data: "₼" }),
@@ -181,7 +163,7 @@ var currencyMenu=currency_cm.Menu({
     		cm.Item({ label: "€  Euro (EUR)",		data: "€" }),
     		cm.Item({ label: "£  British Pound Sterling (GBP)",	data: "£" }),
     		cm.Item({ label: String.fromCodePoint(0x20BE) + "  Georgian lari (GEL)",	data: String.fromCodePoint(0x20BE) }),
-    		cm.Item({ label: String.fromCodePoint(0x20B9) + "  Indian rupee (INR)" +,	data: String.fromCodePoint(0x20B9) }),
+    		cm.Item({ label: String.fromCodePoint(0x20B9) + "  Indian rupee (INR)" ,	data: String.fromCodePoint(0x20B9) }),
     		cm.Item({ label: "¥  Japanese yen (JPY)",	data: "¥" }),
     		cm.Item({ label: "₮  Mongolian tögrög (MNT)",	data: "₮" }),
     		cm.Item({ label: "zł  Polish złoty (PLN)",	data: "zł" }),
@@ -227,12 +209,6 @@ var emojiMenu=emoji_cm.Menu({
   	]
 });
 
-var sep1_cm = control_m.Separator()
-var sep2_cm = control_m.Separator();
-var sep3_cm = control_m.Separator();
-var sep4_cm = control_m.Separator();
-var sep5_cm = control_m.Separator();
-var sep6_cm = control_m.Separator();
 
 var about_nmam = nmam.Item({
   label: "About. (Investigating Software)",
@@ -245,16 +221,10 @@ var languageMenu = cm.Menu({
   items: [arabic_std_cm,cherokee_cm,csimplified_cm,ctraditional_cm,georgian_cm,greek_mod_cm,hebrew_cm,hindi_cm,inuktitut_cm,kannada_cm,khmer_cm,korean_cm,russian_cm,sp_cm,swedish_cm,yoruba_cm]
 });
 
-var controlMenu = control_m.Menu({
-  label: "Control Characters/code-points",
-  items: [rtl_cm, ltr_cm,sep1_cm, rle_cm,lre_cm,sep2_cm,rlo_cm,lro_cm,sep4_cm,pop_cm,sep5_cm,shift_out_cm,shift_in_cm,sep6_cm,annot_cm]
-});
-
-
 var nomoreMenu = nmam.Menu({
   label: "No More ASCII",
   context: nmam.SelectorContext("input,textarea"),
-  items: [languageMenu,controlMenu,currencyMenu,emojiMenu,sep3_cm,about_nmam]
+  items: [languageMenu,controlMenu,currencyMenu,emojiMenu,nmam.Separator(),about_nmam]
 });
 
 

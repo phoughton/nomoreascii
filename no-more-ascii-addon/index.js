@@ -4,6 +4,7 @@ var cm = require("sdk/context-menu");
 var control_m = require("sdk/context-menu");
 var currency_m = require("sdk/context-menu");
 var emoji_m = require("sdk/context-menu");
+var emoji_m2 = require("sdk/context-menu");
 
 var ctraditional_cm = cm.Item({
   label: "Chinese (Mandarin) Traditional:   '我的氣墊船裝滿了鱔魚'",
@@ -334,6 +335,16 @@ var e20 = emoji_m.Item({
   label: String.fromCodePoint(0x1F613) + "  FACE WITH COLD SWEAT",
   contentScript: 'self.on("click", function (node, data) {  node.value+=String.fromCodePoint(0x1F613); });'});
 
+emoji_m2.Menu({
+  label: "Emoji2",
+  contentScript: 'self.on("click", function (node, data) {' +
+                 '  node.value+=data;' +
+                 '});',
+	items: [
+    		cm.Item({ label: String.fromCodePoint(0x1F613) + "  FACE WITH COLD SWEAT", data: String.fromCodePoint(0x1F613) }),
+    		cm.Item({ label: String.fromCodePoint(0x1F612) + "  UNAMUSED FACE", data: String.fromCodePoint(0x1F612)})
+  	]
+});
 
 var sep1_cm = control_m.Separator()
 var sep2_cm = control_m.Separator();
@@ -374,7 +385,7 @@ var emojiMenu = emoji_m.Menu({
 var nomoreMenu = nmam.Menu({
   label: "No More ASCII",
   context: nmam.SelectorContext("input,textarea"),
-  items: [languageMenu,controlMenu,currencyMenu,emojiMenu,sep3_cm,about_nmam]
+  items: [languageMenu,controlMenu,currencyMenu,emojiMenu,emoji_m2,sep3_cm,about_nmam]
 });
 
 
